@@ -5,72 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vivek Sarathe's Portfolio</title>
-    <!-- Google Fonts import for Montserrat font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* === GLOBAL RESET & BASE STYLES === */
         * {
             margin: 0;
             padding: 0;
-            /* box-sizing: border-box; */
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* Smooth scrolling for anchor links */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Main body styling */
         body {
             background-color: #F9FAFB;
             color: #1e293b;
             line-height: 1.6;
-            padding: auto;
-            margin: auto;
         }
 
-        /* === HEADER SECTION === */
         .header {
             background-color: #1F3A8A;
             color: #fff;
             display: flex;
             justify-content: space-between;
-            position: sticky; /* Keeps header fixed at top while scrolling */
+            position: sticky;
             top: 0;
             padding: 1rem 2rem;
             align-items: center;
-            z-index: 10; /* Ensures header stays above other content */
+            z-index: 10;
         }
 
-        /* Logo/Name styling */
         .Logo {
             font-size: 1.6rem;
             font-weight: 600;
             letter-spacing: 1px;
         }
 
-        /* Navigation menu */
         .List {
             list-style: none;
             display: flex;
             gap: 1.5rem;
         }
 
-        /* Navigation links */
+        /* ✨ Hover underline animation for nav links */
         .List a {
             color: #f8fafc;
             text-decoration: none;
-            transition: color 0.3s;
             font-weight: 500;
+            position: relative;
         }
 
-        /* Hover effect for nav links */
-        .List a:hover {
-            color: #facc15;
+        .List a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -3px;
+            left: 0;
+            background-color: #facc15;
+            transition: width 0.3s ease;
         }
 
-        /* === HERO SECTION === */
+        .List a:hover::after {
+            width: 100%;
+        }
+
         .Hero {
             background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
             color: #f8fafc;
@@ -81,23 +80,35 @@
             align-items: center;
             justify-content: center;
             gap: 1.5rem;
+
+            /* ✨ Fade-in animation */
+            animation: fadeSlideIn 1.5s ease-out;
         }
 
-        /* Main heading in hero */
+        /* ✨ Hero text fade-slide animation */
+        @keyframes fadeSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .Hero h1 {
             font-size: 3rem;
-            margin-bottom: 0.5rem;
             font-weight: 700;
         }
 
-        /* Subtitle text */
         .Hero p {
             font-size: 1.2rem;
             color: #e0e7ff;
             margin-bottom: 2rem;
         }
 
-        /* === BUTTON STYLING === */
         .btn {
             background-color: #facc15;
             color: black;
@@ -110,35 +121,30 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* Button hover effect */
         .btn:hover {
             background: #fff;
             color: #1e3a8a;
-            transform: translateY(-3px); /* Lifts button slightly on hover */
+            transform: translateY(-3px);
         }
 
-        /* === SECTION CONTAINER === */
         section {
             padding: 4rem 2rem;
             max-width: 1000px;
             margin: auto;
         }
 
-        /* Center text for main sections */
         .about,
         .projects,
         .contact {
             text-align: center;
         }
 
-        /* Section headings */
         h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
             color: #1e3a8a;
         }
 
-        /* === SKILLS TAGS === */
         .skills p {
             background: #e0e7ff;
             display: inline-block;
@@ -149,37 +155,32 @@
             margin-top: 1rem;
         }
 
-        /* === PROJECTS GRID === */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        /* Individual project card */
         .project-card {
             background: #fff;
             padding: 1.5rem;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            color: #1e293b;
         }
 
-        /* Project card hover effect */
+        /* ✨ Project card subtle hover animation */
         .project-card:hover {
-            transform: translateY(-5px); /* Lifts card on hover */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(31, 58, 138, 0.3);
         }
 
-        /* Project card heading */
         .project-card h3 {
             color: #1e3a8a;
             margin-bottom: 0.5rem;
         }
 
-        /* === FOOTER === */
         footer {
             background: #1e3a8a;
             color: #fff;
@@ -187,8 +188,6 @@
             padding: 1rem 0;
         }
 
-        /* === RESPONSIVE DESIGN === */
-        /* Mobile view adjustments */
         @media (max-width: 600px) {
             .List {
                 flex-direction: column;
@@ -207,7 +206,6 @@
 </head>
 
 <body>
-    <!-- HEADER WITH NAVIGATION -->
     <header class="header">
         <h1 class="Logo">Vivek Sarathe</h1>
         <ul class="List">
@@ -218,38 +216,30 @@
         </ul>
     </header>
 
-    <!-- HERO/LANDING SECTION -->
     <section id="hero" class="Hero">
         <h1>Hi, I'm Vivek 👋</h1>
         <p>LowCode Automation Developer | AI Agents Enthusiast</p>
         <a href="#projects" class="btn">View My Work</a>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section id="about" class="about">
         <h2>About Me</h2>
         <p>I'm Vivek — a college student and founder-in-progress passionate about building scalable AI automations that
             turn repetitive work into seamless systems using AI agents, n8n, and custom-coded solutions. I've built
             projects automating sales and marketing workflows, creating personalized outreach systems, and developing AI
-            chatbots for client and team support. Along the way, I'm documenting my journey of learning, building, and
-            experimenting—sharing insights on AI automation, no-code + Python problem-solving, and workflow optimization
-            to help others save time, cut costs, and scale smarter. 🚀</p>
-        <!-- Skills tags -->
+            chatbots for client and team support.</p>
         <div class="skills">
             <p>HTML • CSS • JavaScript • Python • Java</p>
         </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
     <section id="projects" class="projects">
         <h2>Projects</h2>
         <div class="projects-grid">
-            <!-- Project Card 1 -->
             <div class="project-card">
                 <h3>Portfolio Website</h3>
                 <p>A simple responsive portfolio using HTML and CSS.</p>
             </div>
-            <!-- Project Card 2 -->
             <div class="project-card">
                 <h3>SEO Blog Automation</h3>
                 <p>A N8N automation that does every work that SEO agencies do.</p>
@@ -257,7 +247,6 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
     <section id="contact" class="contact">
         <h2>Contact Me</h2>
         <p>Email: Senv9098@gmail.com</p>
@@ -265,7 +254,6 @@
         <p>GitHub: github.com/viveksarathe</p>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <p>© 2025 Vivek Sarathe | All Rights Reserved</p>
     </footer>
