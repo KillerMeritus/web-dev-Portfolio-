@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek Sarathe's Portfolio</title>
+    <!-- Google Fonts import for Montserrat font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* === GLOBAL RESET & BASE STYLES === */
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box; */
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Main body styling */
+        body {
+            background-color: #F9FAFB;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: auto;
+            margin: auto;
+        }
+
+        /* === HEADER SECTION === */
+        .header {
+            background-color: #1F3A8A;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            position: sticky; /* Keeps header fixed at top while scrolling */
+            top: 0;
+            padding: 1rem 2rem;
+            align-items: center;
+            z-index: 10; /* Ensures header stays above other content */
+        }
+
+        /* Logo/Name styling */
+        .Logo {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation menu */
+        .List {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        /* Navigation links */
+        .List a {
+            color: #f8fafc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        /* Hover effect for nav links */
+        .List a:hover {
+            color: #facc15;
+        }
+
+        /* === HERO SECTION === */
+        .Hero {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
+            color: #f8fafc;
+            text-align: center;
+            padding: 10rem 2rem 6rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        /* Main heading in hero */
+        .Hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        /* Subtitle text */
+        .Hero p {
+            font-size: 1.2rem;
+            color: #e0e7ff;
+            margin-bottom: 2rem;
+        }
+
+        /* === BUTTON STYLING === */
+        .btn {
+            background-color: #facc15;
+            color: black;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button hover effect */
+        .btn:hover {
+            background: #fff;
+            color: #1e3a8a;
+            transform: translateY(-3px); /* Lifts button slightly on hover */
+        }
+
+        /* === SECTION CONTAINER === */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* Center text for main sections */
+        .about,
+        .projects,
+        .contact {
+            text-align: center;
+        }
+
+        /* Section headings */
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+        }
+
+        /* === SKILLS TAGS === */
+        .skills p {
+            background: #e0e7ff;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-top: 1rem;
+        }
+
+        /* === PROJECTS GRID === */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Individual project card */
+        .project-card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: #1e293b;
+        }
+
+        /* Project card hover effect */
+        .project-card:hover {
+            transform: translateY(-5px); /* Lifts card on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Project card heading */
+        .project-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: #1e3a8a;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        /* === RESPONSIVE DESIGN === */
+        /* Mobile view adjustments */
+        @media (max-width: 600px) {
+            .List {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .Hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER WITH NAVIGATION -->
+    <header class="header">
+        <h1 class="Logo">Vivek Sarathe</h1>
+        <ul class="List">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- HERO/LANDING SECTION -->
+    <section id="hero" class="Hero">
+        <h1>Hi, I'm Vivek 👋</h1>
+        <p>LowCode Automation Developer | AI Agents Enthusiast</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>I'm Vivek — a college student and founder-in-progress passionate about building scalable AI automations that
+            turn repetitive work into seamless systems using AI agents, n8n, and custom-coded solutions. I've built
+            projects automating sales and marketing workflows, creating personalized outreach systems, and developing AI
+            chatbots for client and team support. Along the way, I'm documenting my journey of learning, building, and
+            experimenting—sharing insights on AI automation, no-code + Python problem-solving, and workflow optimization
+            to help others save time, cut costs, and scale smarter. 🚀</p>
+        <!-- Skills tags -->
+        <div class="skills">
+            <p>HTML • CSS • JavaScript • Python • Java</p>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <!-- Project Card 1 -->
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>A simple responsive portfolio using HTML and CSS.</p>
+            </div>
+            <!-- Project Card 2 -->
+            <div class="project-card">
+                <h3>SEO Blog Automation</h3>
+                <p>A N8N automation that does every work that SEO agencies do.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>Email: Senv9098@gmail.com</p>
+        <p>LinkedIn: linkedin.com/in/viveksarathe</p>
+        <p>GitHub: github.com/viveksarathe</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 Vivek Sarathe | All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>
